@@ -12,7 +12,6 @@ class YouTubeDownloaderApp:
         self.root.title("⚡ Descarga videos YT")
         self.root.geometry("600x500")
         self.root.configure(bg="#1e1e2f")
-        # Debe ser la carpeta que contiene ffmpeg.exe, no el ejecutable completo
         self.ffmpeg_ruta = r'C:\ffmpeg\bin'  
 
         self.fuente = ("Segoe UI", 11)
@@ -40,7 +39,7 @@ class YouTubeDownloaderApp:
                               "bestvideo+bestaudio/best", 
                               "bestaudio", 
                               "bestvideo",
-                              "mp4")  # Nueva opción agregada
+                              "mp4")
         combo.config(**self.button_style, width=30)
         combo["menu"].config(bg="#2e2e3f", fg="#00ffcc", font=self.fuente)
         combo.pack(pady=5)
@@ -57,7 +56,6 @@ class YouTubeDownloaderApp:
             self.entry_ruta.insert(0, ruta)
 
     def limpiar_titulo(self, title):
-        # Remueve caracteres inválidos en nombres de archivo Windows
         return re.sub(r'[\\/*?:"<>|]', "", title)
 
     def iniciar_descarga(self):
@@ -94,14 +92,12 @@ class YouTubeDownloaderApp:
                 'quiet': True,
             }
 
-            # Evitar caracteres inválidos en títulos
             def sanitize_filename(d):
                 if 'title' in d:
                     d['title'] = self.limpiar_titulo(d['title'])
                 return d
             opciones['progress_hooks'] = [lambda d: sanitize_filename(d)]
 
-            # Postprocesadores según formato
             if resolucion == "bestaudio":
                 opciones['postprocessors'] = [{
                     'key': 'FFmpegExtractAudio',
