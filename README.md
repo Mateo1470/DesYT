@@ -1,6 +1,6 @@
-# 🎬 YouTube Downloader
+<h1>Descarga videos y audios de YouTube utilizando Tkinter</h1>
 
-**YouTube Downloader** es una aplicación de escritorio desarrollada en **Python** con **Tkinter** como interfaz gráfica. Permite descargar videos y música desde **YouTube** de manera sencilla, rápida y con una interfaz amigable.
+Es una aplicación desarrollada en **Python** con **Tkinter** como interfaz gráfica. Permite descargar videos y música desde **YouTube** de manera sencilla.
 
 ## ✨ Características
 
